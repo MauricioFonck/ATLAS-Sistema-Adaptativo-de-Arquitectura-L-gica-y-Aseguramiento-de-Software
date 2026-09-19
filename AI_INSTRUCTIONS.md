@@ -55,6 +55,14 @@ Mantén el dominio y las reglas de negocio independientes de UI, transporte, ORM
 
 Organiza por capacidades de negocio cuando exista complejidad. Protege invariantes en el dominio. Valida en los límites y vuelve a validar reglas críticas internamente. Haz explícitos estados, efectos secundarios, errores, timeouts, reintentos, permisos, transacciones, idempotencia y consistencia. No introduzcas microservicios, CQRS, event sourcing, patrones o abstracciones sin una razón verificable.
 
+## Simplicidad con Ponytail
+
+La skill Ponytail está activa por defecto en nivel `full`. Lee `02-diseno-y-codigo/PONYTAIL_SIMPLICITY.md`. Después de comprender el problema con el protocolo anterior, sube la escalera de Ponytail y detente en el primer peldaño que funcione: ¿necesita existir?, ¿ya existe en el repositorio?, biblioteca estándar, funcionalidad nativa, dependencia instalada, una línea y, solo entonces, el mínimo código. La escalera acorta la solución, nunca la lectura. Nunca simplifiques validación en fronteras de confianza, autenticación, autorización, aislamiento de tenant, manejo de errores que evita pérdida de datos, controles de borde de APIs, accesibilidad ni lo que el usuario pidió explícitamente. Marca cada atajo deliberado con un comentario `ponytail:` que nombre su techo y su ruta de mejora, y ejecuta `/ponytail-review` sobre el diff antes de entregar.
+
+## APIs y API Gateway
+
+Si el sistema expone APIs HTTP, lee `01-arquitectura/API_GATEWAY.md`. Detecta primero si ya existe un reverse proxy, ingress, gateway o BFF y extiéndelo antes de añadir otro. El contrato OpenAPI es la fuente de verdad; los errores siguen RFC 9457. El gateway autentica, limita, valida estructura, enruta y observa; nunca contiene reglas de negocio ni sustituye la autorización a nivel de objeto del servicio. Toda ruta nueva declara propietario, autenticación, scopes, rate limit, timeout, tamaño máximo, idempotencia y pruebas de borde positivas y negativas. La configuración del gateway es código versionado y revisado.
+
 ## ORMs y persistencia
 
 Lee `02-diseno-y-codigo/ORM_STANDARDS.md` cuando el proyecto use un ORM o una capa equivalente. Detecta primero la herramienta, versión, driver, esquema, migraciones, pool y comandos oficiales. Trata el ORM como adaptador: mantén el dominio independiente de modelos generados, decorators, lazy loading, query builders y excepciones concretas. Usa repositorios o adaptadores orientados a casos de uso, evita N+1 y consultas ocultas, revisa índices y planes de ejecución, y prueba con el motor real cuando el comportamiento dependa de él. Toda migración debe ser compatible, versionada, verificable y aplicable a cada base, shard o ubicación.

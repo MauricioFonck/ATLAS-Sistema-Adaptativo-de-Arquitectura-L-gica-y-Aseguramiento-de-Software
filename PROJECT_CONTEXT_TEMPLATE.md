@@ -35,6 +35,7 @@
 | Caché | `[completar]` | `[completar]` | |
 | Mensajería/eventos | `[completar]` | `[completar]` | |
 | Identidad y autorización | `[completar]` | `[completar]` | |
+| API Gateway, proxy o BFF | `[completar]` | `[completar]` | Contrato OpenAPI, rate limits, timeouts y dueño de la configuración |
 | Observabilidad | `[completar]` | `[completar]` | |
 | Contenedores/cloud | `[completar]` | `[completar]` | |
 | CI/CD | `[completar]` | `[completar]` | |
@@ -50,6 +51,7 @@
 - Consistencia y transacciones: `[completar]`.
 - Modo offline o sincronización, si existe: `[completar]`.
 - Decisiones arquitectónicas: `[ruta de ADRs]`.
+- Nivel de Ponytail del proyecto: `[lite / full / ultra]` y excepciones documentadas.
 
 ## Comandos oficiales
 

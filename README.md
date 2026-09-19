@@ -2,12 +2,12 @@
 
 # Estándares personales de ingeniería de software para trabajar con IA
 
-**Versión:** 1.0.0  
+**Versión:** 1.1.0  
 **Propósito:** servir como contrato técnico reutilizable para que una IA comprenda, cuestione y aplique una forma de trabajo profesional en cualquier proyecto.
 
 ## Cómo usar esta carpeta
 
-Copia esta carpeta en la raíz del proyecto o incorpora sus archivos como contexto de trabajo. El archivo `AI_INSTRUCTIONS.md` es la entrada principal para la IA. Antes de escribir código, la IA debe leerlo junto con el contexto específico del proyecto, identificar restricciones y declarar los supuestos que utilizará.
+Copia esta carpeta en la raíz del proyecto o incorpora sus archivos como contexto de trabajo. El archivo `AI_INSTRUCTIONS.md` es la entrada principal para la IA; `CLAUDE.md` la carga automáticamente en Claude Code. Antes de escribir código, la IA debe leerlo junto con el contexto específico del proyecto, identificar restricciones y declarar los supuestos que utilizará.
 
 Este sistema no pretende imponer una tecnología única. Define decisiones por defecto, criterios para elegir alternativas y límites para evitar la sobreingeniería. La mejor arquitectura no es la más sofisticada: es la que satisface los requisitos de negocio y calidad con el menor acoplamiento y costo operativo razonable.
 
@@ -24,12 +24,15 @@ Evolucionar hacia microservicios únicamente cuando exista una razón verificabl
 | Archivo | Contenido | Cuándo consultarlo |
 |---|---|---|
 | `AI_INSTRUCTIONS.md` | Contrato de comportamiento para la IA | Siempre, antes de modificar el proyecto |
+| `CLAUDE.md` | Adaptador que carga el contrato en Claude Code | Automático al abrir el proyecto |
 | `00-MONOREPO_STRUCTURE.md` | Estructura base del monorepo y responsabilidades por carpeta | Al iniciar cualquier proyecto |
 | `PROJECT_CONTEXT_TEMPLATE.md` | Ficha de contexto del monorepo y reglas críticas | Copiar a la raíz como `PROJECT_CONTEXT.md` |
 | `01-arquitectura/ARCHITECTURE.md` | Arquitecturas, capas, módulos y decisiones | Al iniciar o cambiar estructura |
 | `01-arquitectura/SAAS_MULTITENANCY_CACHE.md` | Tenancy, shards, bases compartidas/dedicadas, migraciones y caché | En cualquier SaaS o sistema multi-base |
+| `01-arquitectura/API_GATEWAY.md` | API Gateway, BFF, seguridad OWASP API, tráfico, contratos y observabilidad de borde | Al exponer o modificar APIs HTTP |
 | `02-diseno-y-codigo/CODE_STANDARDS.md` | SOLID, legibilidad, patrones y errores comunes | Al diseñar o escribir código |
 | `02-diseno-y-codigo/ORM_STANDARDS.md` | Reglas universales para ORMs, consultas, migraciones y transacciones | Al trabajar con persistencia |
+| `02-diseno-y-codigo/PONYTAIL_SIMPLICITY.md` | Skill Ponytail: escalera de simplicidad, límites no negociables, niveles y comandos | En toda tarea de código |
 | `03-calidad-y-seguridad/QUALITY_SECURITY.md` | Pruebas, seguridad, rendimiento y observabilidad | Antes de entregar o desplegar |
 | `03-calidad-y-seguridad/QA_STRATEGY.md` | QA senior, pruebas positivas/negativas, automatización y métricas | Desde requisitos hasta producción |
 | `04-proceso/DELIVERY_WORKFLOW.md` | Flujo profesional de trabajo y Definition of Done | En cada tarea o feature |
@@ -62,6 +65,7 @@ El código debe ser comprensible, testeable, seguro, observable y reversible. La
 | Versión | Fecha | Cambio |
 |---|---|---|
 | 1.0.0 | 2026-08-31 | Primera versión reutilizable. |
+| 1.1.0 | 2026-09-19 | Integración de la skill Ponytail como mecanismo de simplicidad, estándar profesional de API Gateway y `CLAUDE.md` de entrada. |
 
 ## Personalización recomendada
 

@@ -10,7 +10,7 @@ Inspecciona el sistema existente y dibuja el flujo actual y el propuesto. Decide
 
 ## 3. Implementación
 
-Construye verticalmente una rebanada funcional pequeña: entrada, caso de uso, dominio, adaptador y prueba. Mantén commits pequeños y descriptivos. Evita mezclar refactorizaciones masivas con cambios funcionales. No cambies contratos públicos sin buscar consumidores y acordar compatibilidad.
+Construye verticalmente una rebanada funcional pequeña: entrada, caso de uso, dominio, adaptador y prueba. Aplica la escalera de Ponytail (`../02-diseno-y-codigo/PONYTAIL_SIMPLICITY.md`): la solución más simple que funciona, sin abstracciones ni dependencias no justificadas. Mantén commits pequeños y descriptivos. Evita mezclar refactorizaciones masivas con cambios funcionales. No cambies contratos públicos sin buscar consumidores y acordar compatibilidad.
 
 ## 4. Verificación
 
@@ -18,7 +18,7 @@ Ejecuta, según el proyecto, formateador, lint, type-check, compilación, prueba
 
 ## 5. Revisión y entrega
 
-Revisa el diff completo. Actualiza documentación, ejemplos, variables de entorno, migraciones y runbooks. Describe pruebas ejecutadas, resultado, riesgos residuales y pasos de despliegue. La entrega no está completa si funciona localmente pero no puede operarse o revertirse con seguridad.
+Revisa el diff completo, incluida una revisión de sobreingeniería con `/ponytail-review`. Actualiza documentación, ejemplos, variables de entorno, migraciones y runbooks. Describe pruebas ejecutadas, resultado, riesgos residuales y pasos de despliegue. La entrega no está completa si funciona localmente pero no puede operarse o revertirse con seguridad.
 
 ## Definition of Done
 
@@ -26,6 +26,8 @@ Revisa el diff completo. Actualiza documentación, ejemplos, variables de entorn
 |---|---|
 | Requisito | Todos los criterios de aceptación pasan. |
 | Diseño | El cambio respeta los límites del módulo y las dependencias. |
+| Simplicidad | No hay abstracciones, dependencias ni código especulativo; los atajos deliberados llevan comentario `ponytail:`. |
+| APIs | Rutas expuestas cumplen el checklist de `../01-arquitectura/API_GATEWAY.md`. |
 | Código | Formato, lint y tipos pasan; no hay secretos ni duplicación crítica. |
 | Pruebas | Los riesgos relevantes tienen pruebas automatizadas. |
 | Seguridad | Entradas, permisos, datos y errores fueron revisados. |
@@ -35,7 +37,7 @@ Revisa el diff completo. Actualiza documentación, ejemplos, variables de entorn
 
 ## Gestión de deuda técnica
 
-Registra deuda con contexto, impacto, riesgo y condición de pago. No escondas decisiones provisionales. Una solución temporal debe tener un propietario y una señal que indique cuándo deja de ser adecuada.
+Registra deuda con contexto, impacto, riesgo y condición de pago. Los comentarios `ponytail:` en el código cumplen este registro en una línea y `/ponytail-debt` los consolida. No escondas decisiones provisionales. Una solución temporal debe tener un propietario y una señal que indique cuándo deja de ser adecuada.
 
 ## Versionado y cambios incompatibles
 
