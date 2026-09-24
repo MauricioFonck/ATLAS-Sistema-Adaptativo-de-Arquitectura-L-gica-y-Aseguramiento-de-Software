@@ -4,6 +4,7 @@ Antes de actuar, carga y cumple `AI_INSTRUCTIONS.md`. Es el contrato canónico d
 
 - **Simplicidad:** la skill Ponytail está activa en nivel `full` (`02-diseno-y-codigo/PONYTAIL_SIMPLICITY.md`). Comprender primero, luego la solución mínima; los controles de seguridad, datos y APIs nunca se simplifican.
 - **APIs:** todo borde HTTP sigue `01-arquitectura/API_GATEWAY.md`.
+- **CI en runners propios:** `04-proceso/SELF_HOSTED_RUNNERS.md`.
 - **Contexto del proyecto:** si existe `PROJECT_CONTEXT.md`, sus decisiones prevalecen sobre las preferencias generales.
 - **Entrega:** Definition of Done de `04-proceso/DELIVERY_WORKFLOW.md`, con `/ponytail-review` sobre el diff antes de cerrar.
 

@@ -63,6 +63,10 @@ La skill Ponytail está activa por defecto en nivel `full`. Lee `02-diseno-y-cod
 
 Si el sistema expone APIs HTTP, lee `01-arquitectura/API_GATEWAY.md`. Detecta primero si ya existe un reverse proxy, ingress, gateway o BFF y extiéndelo antes de añadir otro. El contrato OpenAPI es la fuente de verdad; los errores siguen RFC 9457. El gateway autentica, limita, valida estructura, enruta y observa; nunca contiene reglas de negocio ni sustituye la autorización a nivel de objeto del servicio. Toda ruta nueva declara propietario, autenticación, scopes, rate limit, timeout, tamaño máximo, idempotencia y pruebas de borde positivas y negativas. La configuración del gateway es código versionado y revisado.
 
+## CI en runners propios
+
+Si el proyecto ejecuta GitHub Actions (u otro CI) en infraestructura propia, lee `04-proceso/SELF_HOSTED_RUNNERS.md`. Nunca en repositorios públicos. El runner es Linux (WSL2 en Windows) con su propio motor Docker, los workflows usan `runs-on: ${{ vars.RUNNER || 'ubuntu-latest' }}` para poder volver al CI alojado, y los puertos de `services:` no chocan con los de desarrollo. Respaldos, tareas programadas críticas y despliegues no dependen de un equipo personal encendido. Los scripts con `pipefail` consumen toda la entrada del pipeline y los que recorren recursos dinámicos los leen del mismo registro que la aplicación.
+
 ## ORMs y persistencia
 
 Lee `02-diseno-y-codigo/ORM_STANDARDS.md` cuando el proyecto use un ORM o una capa equivalente. Detecta primero la herramienta, versión, driver, esquema, migraciones, pool y comandos oficiales. Trata el ORM como adaptador: mantén el dominio independiente de modelos generados, decorators, lazy loading, query builders y excepciones concretas. Usa repositorios o adaptadores orientados a casos de uso, evita N+1 y consultas ocultas, revisa índices y planes de ejecución, y prueba con el motor real cuando el comportamiento dependa de él. Toda migración debe ser compatible, versionada, verificable y aplicable a cada base, shard o ubicación.

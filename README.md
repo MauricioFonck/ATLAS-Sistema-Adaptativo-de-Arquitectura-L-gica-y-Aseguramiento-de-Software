@@ -2,7 +2,7 @@
 
 # Estándares personales de ingeniería de software para trabajar con IA
 
-**Versión:** 1.1.0  
+**Versión:** 1.2.0  
 **Propósito:** servir como contrato técnico reutilizable para que una IA comprenda, cuestione y aplique una forma de trabajo profesional en cualquier proyecto.
 
 ## Cómo usar esta carpeta
@@ -36,6 +36,7 @@ Evolucionar hacia microservicios únicamente cuando exista una razón verificabl
 | `03-calidad-y-seguridad/QUALITY_SECURITY.md` | Pruebas, seguridad, rendimiento y observabilidad | Antes de entregar o desplegar |
 | `03-calidad-y-seguridad/QA_STRATEGY.md` | QA senior, pruebas positivas/negativas, automatización y métricas | Desde requisitos hasta producción |
 | `04-proceso/DELIVERY_WORKFLOW.md` | Flujo profesional de trabajo y Definition of Done | En cada tarea o feature |
+| `04-proceso/SELF_HOSTED_RUNNERS.md` | CI en runners propios: cuándo, Linux/WSL2, interruptor `vars.RUNNER`, aislamiento, scripts que fallan ruidosamente | Al quedarse sin minutos de CI o necesitar infraestructura propia |
 | `05-plantillas/ADR_TEMPLATE.md` | Plantilla para decisiones arquitectónicas | Cuando una decisión tenga impacto futuro |
 | `05-plantillas/FEATURE_TEMPLATE.md` | Plantilla para especificar funcionalidades | Antes de implementar una feature |
 | `05-plantillas/TEST_CASE_TEMPLATE.md` | Casos de prueba positivos, negativos y de regresión | Al diseñar o reportar pruebas |
@@ -66,6 +67,7 @@ El código debe ser comprensible, testeable, seguro, observable y reversible. La
 |---|---|---|
 | 1.0.0 | 2026-08-31 | Primera versión reutilizable. |
 | 1.1.0 | 2026-09-19 | Integración de la skill Ponytail como mecanismo de simplicidad, estándar profesional de API Gateway y `CLAUDE.md` de entrada. |
+| 1.2.0 | 2026-09-24 | Estándar de runners propios de CI (`04-proceso/SELF_HOSTED_RUNNERS.md`): Linux/WSL2, interruptor `vars.RUNNER`, Docker aislado, puertos de servicios, tareas críticas fuera del equipo personal y scripts `pipefail` que fallan ruidosamente. |
 
 ## Personalización recomendada
 
